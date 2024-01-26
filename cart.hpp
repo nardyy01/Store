@@ -7,7 +7,7 @@ using namespace std;
 
 class Cart {
 private:
-    int total = 0;
+    double total = 0;
     vector<Product*> itemsInCart;
 
 public:
@@ -15,7 +15,7 @@ public:
     void addItem(Product* item);
     void removeItem(Product* item);
     void emptyCart();
-    int getTotal();
+    double getTotal();
 };
 
 #endif

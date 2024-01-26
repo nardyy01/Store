@@ -26,6 +26,6 @@ void Cart::emptyCart(){
     itemsInCart.clear();
 }
 
-int Cart::getTotal(){
-    return 0;
+double Cart::getTotal(){
+    return total;
 }
