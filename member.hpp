@@ -17,57 +17,28 @@ public:
     Cart* cart = nullptr;
 
     Member(const int id, const string cName) : memberId(id), name(cName), cart(new Cart()){};
-    virtual void checkout() = 0;
+    void checkout();
 };
 
 class BronzeMember : public Member{
-protected:
-    double discount = 0;
 public:
-    BronzeMember(const int id, const string cName) : Member(id, cName){};
-    void checkout(){
-         // Apply member discount
-        double total = cart->getTotal();
-        total = total - (total * discount);
-        cout << "Member Discount Applied: "<< discount*100 << "%" << endl;
-        cout << "Final Total: " << total << endl;
-
-        // Empty the cart after checkout
-        cart->emptyCart();
-    }
+    BronzeMember(const int id, const string cName) : Member(id, cName){
+        discount = 0;
+    };
 };
 
 class SilverMember : public  Member{
-protected:
-    double discount = 0.10;
 public:
-    SilverMember(const int id, const string cName) : Member(id, cName){};
-    void checkout(){
-         // Apply member discount
-        double total = cart->getTotal();
-        total = total - (total * discount);
-        cout << "Member Discount Applied: "<< discount*100 << "%" << endl;
-        cout << "Final Total: " << total << endl;
-
-        // Empty the cart after checkout
-        cart->emptyCart();
-    }
+    SilverMember(const int id, const string cName) : Member(id, cName){
+        discount = 0.10;
+    };
 };
 
 class GoldMember : public Member{
-protected:
-    double discount = 0.15;
 public:
-    GoldMember(const int id, const string cName) : Member(id, cName){};
-    void checkout(){
-         // Apply member discount
-        double total = cart->getTotal();
-        total = total - (total * discount);
-        cout << "Member Discount Applied: "<< discount*100 << "%" << endl;
-        cout << "Final Total: " << total << endl;
+    GoldMember(const int id, const string cName) : Member(id, cName){
+        discount = 0.15;
+    };
 
-        // Empty the cart after checkout
-        cart->emptyCart();
-    }
 };
 #endif
